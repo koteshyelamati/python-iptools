@@ -445,7 +445,7 @@ def long2ip(l):
     :returns: Dotted-quad ip address (eg. '127.0.0.1').
     :raises: TypeError
     """
-    if MAX_IP < l or l < MIN_IP:
+    if not isinstance(l, int) or isinstance(l, bool) or MAX_IP < l or l < MIN_IP:
         raise TypeError(
             "expected int between %d and %d inclusive" % (MIN_IP, MAX_IP))
     return '%d.%d.%d.%d' % (
